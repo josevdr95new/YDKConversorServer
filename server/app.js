@@ -1,22 +1,21 @@
-// server/app.js
-
+require('dotenv').config({ path: './server/.env' }); // Especifica la ruta si el archivo .env no está en la raíz
 const express = require('express');
 const mysql = require('mysql');
 const cors = require('cors');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
 
 // Configuración de la base de datos
 const db = mysql.createConnection({
-    host: 'sql10.freesqldatabase.com',
-    user: 'sql10728226',
-    password: 'YJACstyghB',
-    database: 'sql10728226',
-    port: 3306
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    port: process.env.DB_PORT
 });
 
 db.connect((err) => {
