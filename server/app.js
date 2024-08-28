@@ -1,4 +1,4 @@
-require('dotenv').config({ path: './server/.env' }); // Especifica la ruta si el archivo .env no está en la raíz
+require('dotenv').config(); // Cargar las variables de entorno desde el archivo .env
 const express = require('express');
 const mysql = require('mysql');
 const cors = require('cors');
